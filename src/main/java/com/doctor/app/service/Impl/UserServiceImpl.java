@@ -39,6 +39,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> selectAllUser() {
-        return null;
+
+        List<User> userList = userDao.selectAllUser();
+
+        return userList;
+    }
+
+    @Override
+    public User selectUserById(Integer id) {
+        User user  = userDao.selectUserById(id);
+        return user;
+    }
+
+    @Override
+    public int updateUserSql(User user) {
+
+        int i =  userDao.updateUserSql(user);
+        return i;
+    }
+
+    @Override
+    public int deleteUserSql(Integer id) {
+        int i = userDao.deleteUserSql(id);
+        return i;
     }
 }

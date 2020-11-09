@@ -19,4 +19,10 @@ public interface UserService {
     int insertUser(User user);
 
     List<User> selectAllUser();
+
+    User selectUserById(Integer id);
+
+    int updateUserSql(User user);
+
+    int deleteUserSql(Integer id);
 }

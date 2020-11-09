@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.doctor.app.dao.ContentDao">
+
+    <!--插入内容-->
+    <insert id="insertContent" parameterType="com.doctor.app.entity.Content">
+            insert into content(title,column_id,`column_name`,views,releasedate,num,Abbreviation_url,details,atlas,`name`,phone,del)
+            values (#{title},#{column_id},#{column_name},#{views},#{releasedate},#{num},#{Abbreviation_url},#{details},#{atlas},#{name},#{phone},1)
+    </insert>
+
+    <!--更新内容-->
+    <update id="updateContentSql" parameterType="com.doctor.app.entity.Content">
+        update`user`
+        <set>
+            <if test="title != null and title != ''">
+                user_name = #{user_name},
+            </if>
+            <if test="column_id != null and column_id != 0">
+                user_pwd = #{user_pwd},
+            </if>
+            <if test="column_name != null and column_name != ''">
+                column_name = #{column_name},
+            </if>
+            <if test="views != null and views != ''">
+                views = #{views},
+            </if>
+            <if test="releasedate != null and releasedate != ''">
+                releasedate = #{releasedate},
+            </if>
+            <if test="num != null and num != 0">
+                num = #{num},
+            </if>
+            <if test="Abbreviation_url != null and Abbreviation_url != ''">
+                Abbreviation_url = #{Abbreviation_url},
+            </if>
+            <if test="details != null and details != ''">
+                details = #{details},
+            </if>
+            <if test="atlas != null and atlas != ''">
+                atlas = #{atlas},
+            </if>
+            <if test="name != null and name != ''">
+                `name` = #{name},
+            </if>
+            <if test="phone != null and phone != ''">
+                user_phone = #{user_phone}
+            </if>
+        </set>
+        where id = #{id} and del =1
+    </update>
+
+</mapper>
