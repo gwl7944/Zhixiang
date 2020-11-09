@@ -5,11 +5,14 @@ import com.alibaba.fastjson.JSON;
 import com.doctor.app.entity.Basic;
 import com.doctor.app.entity.Rotation;
 import com.doctor.app.service.CommonService;
+import com.doctor.app.util.FastDFSUtils;
 import com.doctor.app.util.ResultCode;
 import com.doctor.app.util.ResultData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -29,6 +32,9 @@ public class CommonController {
 
     @Autowired
     CommonService commonService;
+
+    @Value("${serveraddress}")
+    private String serveraddress;
 
     /**
      * 查找基本信息
@@ -102,6 +108,22 @@ public class CommonController {
             return ResultData.getResponseData(null, ResultCode.UPDATE_SUCCESS);
         }else {
             return ResultData.getResponseData(null, ResultCode.UPDATE_ERROR);
+        }
+    }
+
+
+    /**
+     * 图片上传
+     * */
+    @PostMapping("/CommonController/IMG")
+    public JSON insertCommodityIMG(MultipartFile file){
+        log.info("serveraddress------>"+serveraddress);
+        String fileId = FastDFSUtils.upload(file);
+        String url = serveraddress + fileId;
+        if(url!=null){
+            return ResultData.getResponseData(url,ResultCode.IMG_SUCCESS);
+        }else {
+            return ResultData.getResponseData(null,ResultCode.IMG_ERROR);
         }
     }
 
