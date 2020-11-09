@@ -1,5 +1,7 @@
 package com.doctor.app.service;
 
+import com.doctor.app.entity.User;
+
 import java.util.List;
 
 /**
@@ -11,5 +13,5 @@ import java.util.List;
  * @Date: 2020/10/26 16:49
  */
 public interface TesService {
-    List<TestEntity> getEntity();
+    List<User> getEntity();
 }

@@ -1,6 +1,7 @@
 package com.doctor.app.service.Impl;
 
 import com.doctor.app.dao.TestDao;
+import com.doctor.app.entity.User;
 import com.doctor.app.service.TesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,9 +23,9 @@ public class TestServiceImpl implements TesService {
     private TestDao testDao;
 
     @Override
-    public List<TestEntity> getEntity() {
+    public List<User> getEntity() {
 
-        List<TestEntity> list = testDao.selectEntity();
+        List<User> list = testDao.selectEntity();
         return list;
     }
 }

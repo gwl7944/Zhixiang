@@ -1,5 +1,6 @@
 package com.doctor.app.dao;
 
+import com.doctor.app.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.jdbc.SQL;
@@ -16,19 +17,7 @@ import java.util.List;
  * @Date: 2020/10/26 16:53
  */
 @Mapper
-@Component
 public interface TestDao {
+    List<User> selectEntity();
 
-    @SelectProvider(type = GetSql.class,method = "findEntity")
-    List<TestEntity> selectEntity();
-
-    class GetSql{
-        public String findEntity(){
-            return new SQL(){{
-                SELECT("*");
-                FROM("test_entity");
-            }}.toString();
-        }
-
-    }
 }

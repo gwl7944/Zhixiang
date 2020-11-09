@@ -11,7 +11,7 @@
     <groupId>com.doctor</groupId>
     <artifactId>app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>doctor_signed_sys</name>
+    <name>Zhixiang</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

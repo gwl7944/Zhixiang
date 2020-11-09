@@ -1,5 +1,6 @@
 package com.doctor.app.controller;
 
+import com.doctor.app.entity.User;
 import com.doctor.app.service.TesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -25,9 +26,9 @@ public class TestController {
 
     @RequestMapping("/hello")
     @ResponseBody
-    public List<TestEntity> getHello(){
+    public List<User> getHello(){
 
-        List<TestEntity> testEntityList = tesService.getEntity();
+        List<User> testEntityList = tesService.getEntity();
 
         return testEntityList;
     }
